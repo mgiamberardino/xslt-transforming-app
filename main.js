@@ -23,7 +23,7 @@ server.post('/api/xml',upload.fields([{ name: 'xmlFile', maxCount: 1 }, { name: 
     var xsltFile = req.files['xsltFile'];
     var xmlContent = fs.readFileSync('uploads/'+xmlFile.filename, 'utf-8');
     var stylesheet = fs.readFileSync('xslt/export.xslt', 'utf-8');
-    if (undefined === xsltFile) {
+    if (undefined !== xsltFile) {
         stylesheet = fs.readFileSync('uploads/'+xsltFile.filename, 'utf-8');
     }
 
